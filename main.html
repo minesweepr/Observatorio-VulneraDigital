@@ -13,11 +13,11 @@
 <body>
     <header>
         <div class="wrap">
-            <a class="logo" href="main.html#inicio"><span><i class="fa-solid fa-circle-nodes"></i> Observatório</span>-VulneraDigital</a>
-            <nav>
-                <button data-menu="menu-header" class="menu-dropdown"><i class="fa-solid fa-bars"></i></button>
+            <a class="logo" href="main.html#inicio"><span><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Observatório</span>-VulneraDigital</a>
+            <nav aria-label="Barra de navegação principal">
+                <button data-menu="menu-header" class="menu-dropdown"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 <ul id="menu-header" class="menu">
-                    <li><a class="link_animation" href="main.html">Início</a></li>
+                    <li><a class="link_animation" href="main.html#inicio">Início</a></li>
                     <li><a class="link_animation" href="analise.html">Análise</a></li>
                     <li><a class="link_animation" href="dashboard.html">Dashboard</a></li>
                     <li><a class="btn btn-primario" href="https://docs.google.com/forms/d/e/1FAIpQLScTahZr3yP8gh5IKn_7XbfIR2ZswEojs78hdv_pfMR0qe-xbA/viewform?usp=dialog">Formulário</a></li>
@@ -37,12 +37,12 @@
                     <a class="btn btn-secundario" href="">Ver o artigo</a>
                 </div>
             </div>
-            <img src="img/pc_mapa.png">
+            <img src="img/pc_mapa.png" alt="Mapa digital em um computador">
         </div>
     </aside>
 
     <main>
-        <section id="objetivo">
+        <section id="objetivo" class="revelar">
             <div class="wrap centro">
                 <p class="subtitulo">Objetivo</p>
                 <h2>Transformando experiências em evidências coletivas</h2>
@@ -50,7 +50,7 @@
             </div>
         </section>
 
-        <section id="problema" class="alt">
+        <section id="problema" class="alt revelar">
             <div class="wrap centro">
                 <p class="subtitulo">Problema</p>
                 <h2>Barreiras que dificultam o acesso</h2>
@@ -58,15 +58,15 @@
 
                 <div class="problemas">
                     <div class="coluna">
-                        <article class="item">
-                            <i class="fa-solid fa-wifi"></i>
+                        <article class="item revelar">
+                            <i class="fa-solid fa-wifi" aria-hidden="true"></i>
                             <div>
                                 <h3>Conectividade</h3>
                                 <p>A falta de internet de qualidade ou de acesso à rede pode impedir o uso de serviços digitais de saúde.</p>
                             </div>
                         </article>
-                        <article class="item">
-                            <i class="fa-solid fa-arrow-pointer"></i>
+                        <article class="item revelar">
+                            <i class="fa-solid fa-arrow-pointer" aria-hidden="true"></i>
                             <div>
                                 <h3>Usabilidade</h3>
                                 <p>Interfaces confusas, etapas complexas e erros podem dificultar agendamentos e outros procedimentos.</p>
@@ -74,18 +74,18 @@
                         </article>
                     </div>
 
-                    <img class="celular" src="img/cel_mapa.png">
+                    <img class="celular" src="img/cel_mapa.png" alt="Mapa digital em um celular">
 
                     <div class="coluna cd">
-                        <article class="item">
-                            <i class="fa-solid fa-wheelchair-move"></i>
+                        <article class="item revelar">
+                            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
                             <div>
                                 <h3>Acessibilidade</h3>
                                 <p>Recursos digitais que não consideram diferentes necessidades podem restringir a autonomia de pessoas com deficiência.</p>
                             </div>
                         </article>
-                        <article class="item">
-                            <i class="fa-solid fa-book-open"></i>
+                        <article class="item revelar">
+                            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
                             <div>
                                 <h3>Letramento digital</h3>
                                 <p>A dificuldade para entender instruções ou utilizar aplicativos pode tornar o acesso aos serviços mais difícil.</p>
@@ -96,7 +96,7 @@
             </div>
         </section>
 
-        <section id="comofunciona">
+        <section id="comofunciona" class="revelar">
             <div class="wrap centro">
                 <p class="subtitulo">Como Funciona</p>
                 <h2>Da experiência ao conhecimento</h2>
@@ -127,7 +127,7 @@
             </div>
         </section>
 
-        <section id="faq" class="alt">
+        <section id="faq" class="alt revelar">
             <div class="wrap centro">
                 <p class="subtitulo">F.A.Q</p>
                 <h2>Perguntas Frequentes</h2>
@@ -139,7 +139,7 @@
                     </details>
                     <details>
                         <summary>Quem pode participar da coleta de dados?</summary>
-                        <p>Usuários dos serviços públicos de saúde que desejam compartilhar suas experiências com os canais digitais. A participação ocorre por meio do formulário disponibilizado pelo projeto.</p>
+                        <p>Usuários dos serviços públicos de saúde do município do Rio de Janeiro que desejam compartilhar suas experiências com os canais digitais. A participação ocorre por meio do formulário disponibilizado pelo projeto.</p>
                     </details>
                     <details>
                         <summary>Como as informações coletadas são utilizadas?</summary>
@@ -149,7 +149,7 @@
             </div>
         </section>
 
-        <section id="saibamais">
+        <section id="saibamais" class="revelar">
             <div class="wrap centro">
                 <p class="subtitulo">Saiba mais</p>
                 <h2>Conheça a pesquisa por trás do observatório</h2>
@@ -165,10 +165,10 @@
     <footer>
         <div class="wrap">
             <div>
-                <a class="logo" href="main.html#inicio"><i class="fa-solid fa-circle-nodes"></i> Observatório-VulneraDigital</a>
+                <a class="logo" href="main.html#inicio"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Observatório-VulneraDigital</a>
                 <p>Identificando barreiras digitais no acesso à saúde pública.</p>
             </div>
-            <nav>
+            <nav aria-label="Barra de navegação do rodapé">
                 <a class="link_animation" href="main.html#inicio">Início</a>
                 <a class="link_animation" href="analise.html">Análise</a>
                 <a class="link_animation" href="dashboard.html">Dashboard</a>
@@ -178,5 +178,6 @@
     </footer>
 
 <script src="js/menu.js"></script>
+<script src="js/revelar.js"></script>
 </body>
 </html>
