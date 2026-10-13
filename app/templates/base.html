@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatório-VulneraDigital</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='src/favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block estilo %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/geral.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="wrap">
+            <a class="logo" href="{{ url_for('index') }}#inicio"><span><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Observatório</span>-VulneraDigital</a>
+            <nav aria-label="Barra de navegação principal">
+                <button data-menu="menu-header" class="menu-dropdown"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                <ul id="menu-header" class="menu">
+                    <li><a class="link_animation" href="{{ url_for('index') }}#inicio">Início</a></li>
+                    <li><a class="link_animation" href="{{ url_for('analise') }}">Análise</a></li>
+                    <li><a class="link_animation" href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a class="btn btn-primario" href="https://docs.google.com/forms/d/e/1FAIpQLScTahZr3yP8gh5IKn_7XbfIR2ZswEojs78hdv_pfMR0qe-xbA/viewform?usp=dialog">Formulário</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    {% block conteudo %}
+    {% endblock %}
+
+    <footer>
+        <div class="wrap">
+            <div>
+                <a class="logo" href="{{ url_for('index') }}#inicio"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i> Observatório-VulneraDigital</a>
+                <p>Identificando barreiras digitais no acesso à saúde pública.</p>
+            </div>
+            <nav aria-label="Barra de navegação do rodapé">
+                <a class="link_animation" href="{{ url_for('index') }}#inicio">Início</a>
+                <a class="link_animation" href="{{ url_for('analise') }}">Análise</a>
+                <a class="link_animation" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="link_animation" href="https://docs.google.com/forms/d/e/1FAIpQLScTahZr3yP8gh5IKn_7XbfIR2ZswEojs78hdv_pfMR0qe-xbA/viewform?usp=dialog">Formulário</a>
+            </nav>
+        </div>
+    </footer>
+
+<script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>
