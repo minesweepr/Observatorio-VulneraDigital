@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% block estilo %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plotly.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+    <h1 class="t-dashboard">Dashboard</h1>
+
+    <section class="dashboard-resumo">
+        <div class="card">
+            <h2 class="grafico-titulo"><i class="fa-solid fa-magnifying-glass-chart"></i>Análises Disponíveis</h2>
+            <p class="valor">15</p>
+            <p class="grafico-subtitulo">Quantidade de gráficos apresentados</p>
+        </div>
+        <div class="card">
+            <h2 class="grafico-titulo"><i class="fa-solid fa-clock-rotate-left"></i>Última Atualização</h2>
+            <p class="valor">10/10/2026</p>
+            <p class="grafico-subtitulo">Data da atualização dos dados exibidos</p>
+        </div>
+    </section>
+
+    <section class="card dash-dashboard">
+        <h2 class="grafico-titulo"> <i class="fa-solid fa-sliders"></i> Filtrar Análises </h2>
+
+        <div class="filtros-container">
+            <div class="filtro">
+                <label for="filtro-categoria">Categoria</label>
+                <div class="select-container">
+                    <select id="filtro-categoria" name="categoria">
+                        <option value="">Todas as categorias</option>
+                        <option value="perfil-conectividade">Perfil e acesso à internet</option>
+                        <option value="servicos-saude">Uso dos serviços digitais de saúde</option>
+                        <option value="experiencia-letramento">Experiência de uso e letramento digital</option>
+                        <option value="acessibilidade">Barreiras de acessibilidade</option>
+                        <option value="impactos-saude">Impactos no acesso à saúde</option>
+                    </select>
+                    <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <button type="button" id="limpar-filtros" class="btn btn-limpar"> Limpar filtros </button>
+            <p class="grafico-subtitulo" id="status-dados" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <section>
+        <h1 class="t-dashboard">Gráficos</h1>
+
+        <p id="status-cruzamentos" role="status">
+            Carregando cruzamentos...
+        </p>
+        <div id="lista-cruzamentos" class="dash-grid" aria-live="polite">
+        
+            <article class="grafico-card">
+                <h3 id="titulo-cruzamento-4-9" class="grafico-titulo"></h3>
+                <div id="cruzamento-4-9" class="grafico-plot"></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
+                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
+                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                </p>
+            </article> 
+            <article class="grafico-card">
+                <h3 id="titulo-cruzamento-3-11" class="grafico-titulo"></h3>
+                <div id="cruzamento-3-11" class="grafico-plot"></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
+                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
+                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                </p>
+            </article> 
+            <article class="grafico-card">
+                <h3 id="titulo-cruzamento-11-10" class="grafico-titulo"></h3>
+                <div id="cruzamento-11-10" class="grafico-plot"></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
+                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
+                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                </p>
+            </article> 
+            <article class="grafico-card">
+                <h3 id="titulo-cruzamento-5-6" class="grafico-titulo"></h3>
+                <div id="cruzamento-5-6" class="grafico-plot"></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
+                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
+                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                </p>
+            </article> 
+            <article class="grafico-card">
+                <h3 id="titulo-cruzamento-1-9" class="grafico-titulo"></h3>
+                <div id="cruzamento-1-9" class="grafico-plot"></div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
+                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
+                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                </p>
+            </article> 
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="{{ url_for('static', filename='js/analise.js') }}"></script>
+{% endblock %}
+{% extends "base.html" %}
+{% block estilo %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/plotly.css') }}">
+{% endblock %}
+
+{% block conteudo %}
+<h1 class="t-dashboard">Dashboard</h1>
+
+<section class="dashboard-resumo">
+    <div class="card">
+        <h2 class="grafico-titulo"><i class="fa-solid fa-magnifying-glass-chart"></i>Análises Disponíveis</h2>
+        <p class="valor">15</p>
+        <p class="grafico-subtitulo">Quantidade de gráficos apresentados</p>
+    </div>
+    <div class="card">
+        <h2 class="grafico-titulo"><i class="fa-solid fa-clock-rotate-left"></i>Última Atualização</h2>
+        <p class="valor">10/10/2026</p>
+        <p class="grafico-subtitulo">Data da atualização dos dados exibidos</p>
+    </div>
+</section>
+
+<section class="card dash-dashboard">
+    <h2 class="grafico-titulo"> <i class="fa-solid fa-sliders"></i> Filtrar Análises </h2>
+
+    <div class="filtros-container">
+        <div class="filtro">
+            <label for="filtro-categoria">Categoria</label>
+            <div class="select-container">
+                <select id="filtro-categoria" name="categoria">
+                    <option value="">Todas as categorias</option>
+                    <option value="perfil-conectividade">Perfil e acesso à internet</option>
+                    <option value="servicos-saude">Uso dos serviços digitais de saúde</option>
+                    <option value="experiencia-letramento">Experiência de uso e letramento digital</option>
+                    <option value="acessibilidade">Barreiras de acessibilidade</option>
+                    <option value="impactos-saude">Impactos no acesso à saúde</option>
+                </select>
+                <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+            </div>
+        </div>
+
+        <button type="button" id="limpar-filtros" class="btn btn-limpar"> Limpar filtros </button>
+        <p class="grafico-subtitulo" id="status-dados" aria-live="polite"></p>
+    </div>
+</section>
+
+<section>
+    <h1 class="t-dashboard">Gráficos</h1>
+
+    <p id="status-cruzamentos" role="status">
+        Carregando cruzamentos...
+    </p>
+    <div id="lista-cruzamentos" class="dash-grid" aria-live="polite">
+
+        <article class="grafico-card">
+            <h3 id="titulo-cruzamento-4-9" class="grafico-titulo"></h3>
+            <div id="cruzamento-4-9" class="grafico-plot"></div>
+            <p>
+                O gráfico permite analisar se existe relação entre os dispositivos utilizados pelos participantes e as
+                dificuldades enfrentadas no acesso aos serviços digitais de saúde. A comparação ajuda a identificar
+                quais dispositivos estão associados a maiores dificuldades de utilização.
+            </p>
+        </article>
+        <article class="grafico-card">
+            <h3 id="titulo-cruzamento-3-11" class="grafico-titulo"></h3>
+            <div id="cruzamento-3-11" class="grafico-plot"></div>
+            <p>
+                Este gráfico permite observar se o nível de escolaridade está relacionado à facilidade de utilizar
+                dispositivos digitais. A análise pode indicar diferenças entre os grupos e ajudar a compreender como a
+                escolaridade influencia a autonomia digital.
+            </p>
+        </article>
+        <article class="grafico-card">
+            <h3 id="titulo-cruzamento-11-10" class="grafico-titulo"></h3>
+            <div id="cruzamento-11-10" class="grafico-plot"></div>
+            <p>
+                O gráfico investiga a relação entre a facilidade de utilizar recursos digitais e a desistência de
+                utilizar serviços de saúde. Ele permite verificar se os participantes que apresentam maiores
+                dificuldades também relatam desistências com maior frequência.
+            </p>
+        </article>
+        <article class="grafico-card">
+            <h3 id="titulo-cruzamento-5-6" class="grafico-titulo"></h3>
+            <div id="cruzamento-5-6" class="grafico-plot"></div>
+            <p>
+                Este gráfico compara as condições de acesso à internet com a frequência com que os participantes ficam
+                sem conseguir acessar os serviços digitais. A análise ajuda a compreender como as limitações de
+                conectividade podem representar uma barreira ao acesso à saúde.
+            </p>
+        </article>
+        <article class="grafico-card">
+            <h3 id="titulo-cruzamento-1-9" class="grafico-titulo"></h3>
+            <div id="cruzamento-1-9" class="grafico-plot"></div>
+            <p>
+                O gráfico permite comparar as dificuldades relatadas por diferentes faixas etárias no uso de serviços
+                digitais de saúde. Dessa forma, é possível identificar diferenças entre os grupos e investigar se
+                determinadas idades enfrentam mais barreiras de acesso.
+            </p>
+        </article>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="{{ url_for('static', filename='js/analise.js') }}"></script>
+{% endblock %}

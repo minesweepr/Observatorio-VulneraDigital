@@ -1,0 +1,191 @@
+:root{
+    --fundo: #fbfcfe;
+    --fundo-alt: #eef3fa;
+    --fonte: #0d0d0e;
+    --fonte-m: #595c66;
+    --borda: #c2d3eb;
+    --prim: #1484b4;
+    --sec: #dd8335;
+    --sec-alt: #fcead7;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html{scroll-behavior: smooth;}
+body{background-color: var(--fundo); color: var(--fonte);}
+.logo{font-size: 1.05rem; font-weight: 700; color: var(--fonte);}
+.logo>span{color: #105E80;}
+.laranja{color: var(--sec);}
+a{text-decoration: none; color: inherit; transition: 0.15s color;}
+
+.wrap{
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 32px);
+}
+
+.subtitulo{
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--prim);
+    font-weight: 700;
+}
+
+.centro{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.centro>p:not(.subtitulo){max-width: 70ch;}
+section{padding-block: clamp(48px, 8vw, 80px);}
+section.alt{background-color: var(--fundo-alt);}
+
+h1, h2{
+    line-height: 1.12;
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+}
+h1{font-size: clamp(2.05rem, 5vw, 3.45rem); font-weight: 700; margin-block: 5px 27px;}
+h2{font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 700; margin-block: -10px 12px; max-width: 40ch;}
+h3{margin-block: 0 5px;}
+
+.revelar{
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.revelar.visivel{opacity: 1; transform: translateY(0);}
+@media (prefers-reduced-motion: reduce){.revelar{opacity: 1; transform: none; transition: none;}}
+
+/*nav*/
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--fundo);
+    border-bottom: 1px solid var(--borda);
+}
+header .wrap, nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 62px;
+}
+nav ul{
+	cursor: pointer;
+    list-style: none;
+}
+header nav a:not(.logo, .btn):hover{color: #024c6c;}
+
+/*footer*/
+footer{
+    background-color: var(--prim);
+    padding-block: 32px;
+}
+
+footer .wrap, nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+nav{gap: 5px 22px;}
+footer a, footer p{color: #9fcfe3}
+footer a:hover{color: var(--fundo);}
+footer p{max-width: 48ch; margin-top: 8px;}
+footer .logo{color: var(--fundo);}
+
+/*botões*/
+.btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid transparent;
+    transition: background-color .15s;
+}
+.btn-primario{background-color: var(--prim); color: var(--fundo);}
+.btn-primario:hover{background-color: #0d6e98;}
+.btn-secundario{border-color: var(--prim); color: var(--prim);}
+.btn-secundario:hover{background-color: #d6e8ef;}
+
+.botoes{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 12px; 
+    margin-top: 30px;
+}
+
+button{
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+button.menu-dropdown{display: none;}
+
+/*responsividade*/
+@media (min-width: 860px){
+    .link_animation::after{
+        content: '';
+        display: block;
+        width: 0;
+        height: 0.125rem;
+        background: var(--prim);
+        transition: width .3s;
+    }
+    footer .link_animation::after{background: var(--fundo);}
+    .link_animation:hover::after{width: 100%;}
+}
+
+@media (max-width: 860px){
+    .menu{
+        display: none;
+        position: absolute;
+        top: 63px;
+        right: 0;
+        flex-direction: column;
+        gap: 0px;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #menu-header li a{
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        background-color: var(--fundo);
+        color: var(--fonte);
+        border: none;
+        border-radius: 0px;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .menu.visivel{display: flex;}
+    #menu-header li{width: 100%; border-bottom: 1px solid var(--borda);}
+    #menu-header li a:hover{background-color: var(--fundo-alt);}
+
+    button.menu-dropdown{display: inline-block;}
+    aside>div.wrap{grid-template-columns: 1fr;}
+}
+
+@media (max-width: 690px){
+    .botoes{justify-content: center;}
+    .btn{width: 100%;justify-content: center;}
+}
