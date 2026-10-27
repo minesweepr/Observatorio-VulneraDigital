@@ -75,31 +75,41 @@ CONFIGURACOES_PAGINAS = {
             # },
         ],
         "cruzamentos": [ 
-            #Adicionar quantas perguntas quiser aqui no formato do exemplo abaixo.
-            #perguntas que estao numeradas de 1 a 15 acima em "dashboard"
-            #cada uma das perguntas/de onde veio o valor um será o eixo x e outro será o eixo y
             {   
-                #devem ser o mesmo do html analise.html, cada dado é um grafico.
-                "pergunta_1": 1,
-                "pergunta_2": 7,
-
-                #Sempre adicionar um titulo para o grafico nesse arquivo. 
-                "titulo": "Faixa etária × Uso de serviços digitais de saúde",
-
-                #escolher em qual categoria o grafico irá aparecer, da lista da analise -> categoria.
+                "pergunta_1": 4,
+                "pergunta_2": 9,
+                "titulo": "Dispositivos Utilizados x Dificuldade de Usabilidade",
                 "categoria": "perfil-conectividade",
-
-                #Escolher o tipo de grafico que voce quer(barv, barh, pie, donut, lollipop, area, line,...)
-                #verificar possibilidades do plotly dash
                 "tipo": "barv",
             },
-            # {   
-            #     "pergunta_1": 1,
-            #     "pergunta_2": 7,
-            #     "titulo": "Faixa etária × Uso de serviços digitais de saúde",
-            #     "categoria": "perfil-conectividade",
-            #     "tipo": "barv",
-            # },
+            {   
+                "pergunta_1": 3,
+                "pergunta_2": 11,
+                "titulo": "Escolaridade x Facilidade de Utilizar Dispositivos",
+                "categoria": "perfil-conectividade",
+                "tipo": "barh",
+            },
+            {   
+                "pergunta_1": 11,
+                "pergunta_2": 10,
+                "titulo": "Facilidade Digital x Desistência",
+                "categoria": "perfil-conectividade",
+                "tipo": "barv",
+            },
+            {   
+                "pergunta_1": 5,
+                "pergunta_2": 6,
+                "titulo": "Conectividade x Sem Acesso",
+                "categoria": "perfil-conectividade",
+                "tipo": "barh",
+            },
+            {   
+                "pergunta_1": 1,
+                "pergunta_2": 9,
+                "titulo": "Dificuldade no uso de serviços digitais de saúde por faixa etária",
+                "categoria": "perfil-conectividade",
+                "tipo": "barv",
+            }       
         ],
     },
 }

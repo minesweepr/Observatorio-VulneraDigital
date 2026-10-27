@@ -83,3 +83,7 @@ Thumbs.db
 *.tmp
 *.temp
 ~$*
+
+#data file csv, xlsx
+respostas.csv
+dados/*.csv
