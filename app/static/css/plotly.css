@@ -1,0 +1,99 @@
+#lista-graficos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#lista-graficos > .grafico-card {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    box-shadow: 1px 0 15px 3px rgb(100 100 103 / 5%);
+}
+
+#lista-graficos .grafico-plot,
+#lista-cruzamentos .grafico-plot {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.grafico-plot .js-plotly-plot,
+.grafico-plot .plot-container,
+.grafico-plot .svg-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+.grafico-titulo {
+    margin: 0 0 8px;
+    color: #333333;
+    font-size: 1rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.grafico-plot .modebar-container {
+    background: transparent !important;
+}
+
+.grafico-plot .modebar,
+.grafico-plot .modebar-group {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.grafico-plot .modebar-btn,
+.grafico-plot .modebar-btn svg,
+.grafico-plot .modebar-btn path {
+    color: var(--prim) !important;
+    fill: var(--prim) !important;
+}
+
+.grafico-plot .modebar-btn:hover {
+    background-color: #F0E6F5 !important;
+    border-radius: 4px;
+}
+
+.grafico-plot .modebar-btn:hover,
+.grafico-plot .modebar-btn:hover svg,
+.grafico-plot .modebar-btn:hover path {
+    color: var(--fonte) !important;
+    fill: var(--fonte) !important;
+}
+
+.grafico-plot .modebar-btn.active {
+    background-color: #E8D8F0 !important;
+}
+
+.grafico-plot .modebar-btn.active,
+.grafico-plot .modebar-btn.active svg,
+.grafico-plot .modebar-btn.active path {
+    color: var(--fonte) !important;
+    fill: var(--fonte) !important;
+}
+
+.grafico-plot .nsewdrag,
+.grafico-plot .drag {
+    cursor: default !important;
+}
+
+@media (max-width: 990px) {
+    #lista-graficos {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+}
