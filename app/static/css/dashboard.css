@@ -159,6 +159,41 @@ section i {
     background-color: #fff;
 }
 
+#status-cruzamentos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 36px 0;
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #dcdcdc;
+    border-top-color: #3498db;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+footer {
+    margin-top: 80px;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner[hidden] {
+    display: none;
+}
+
 @media (max-width: 760px) {
     .dashboard-resumo {
         grid-template-columns: minmax(0, 1fr);

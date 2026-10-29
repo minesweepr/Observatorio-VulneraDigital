@@ -2,7 +2,22 @@
     "use strict";
 
     const lista = document.getElementById("lista-cruzamentos");
+    lista.style.display = 'block';
+
     const status = document.getElementById("status-cruzamentos");
+
+    const textoStatus = document.getElementById("texto-status");
+    const spinner = status?.querySelector(".spinner");
+
+    function atualizarStatus(mensagem, carregando = false) {
+        if (textoStatus) {
+            textoStatus.textContent = mensagem;
+        }
+
+        if (spinner) {
+            spinner.hidden = !carregando;
+        }
+    }
 
     if (!lista) {
         console.error("Elemento #lista-cruzamentos não encontrado.");
@@ -17,9 +32,6 @@
     }
 
     async function carregarCruzamentos() {
-        if (status) {
-            status.textContent = "Carregando cruzamentos...";
-        }
 
         try {
             const resposta = await fetch("/api/analise", { headers: { Accept: "application/json" } });
@@ -41,6 +53,11 @@
                 const id = `cruzamento-${grafico.pergunta_1}-${grafico.pergunta_2}`;
                 const area = document.getElementById(id);
                 const titulo = document.getElementById(`titulo-cruzamento-${grafico.pergunta_1}-${grafico.pergunta_2}`);
+                const total = document.getElementById("total-cruzamentos");
+                
+                if (total) {
+                    total.textContent = resultado.graficos.length;
+                }
 
                 if (titulo) {
                     titulo.textContent = grafico.titulo;
@@ -79,18 +96,20 @@
                                 "toImage"
                             ]
                         }
-                    ).then(() => { carregados++; })
+                    ).then(() => {carregados++;})
                 );
             });
 
             await Promise.all(promessas);
             lista.querySelectorAll(".grafico-plot").forEach((elemento) => { if (elemento.data) { window.Plotly.Plots.resize(elemento); } });
             if (status) {
-                status.textContent = `${carregados} cruzamento(s) carregado(s).`;
+                status.style.display = 'none';
             }
+            lista.style.display = 'block';
         } catch (erro) {
             console.error("Erro ao carregar cruzamentos:", erro);
             if (status) {
+                status.style.display = 'flex';
                 status.textContent = `Erro ao carregar cruzamentos: ${erro.message}`;
             }
         }

@@ -16,7 +16,7 @@
         </div>
         <div class="card">
             <h2 class="grafico-titulo"><i class="fa-solid fa-clock-rotate-left"></i>Última Atualização</h2>
-            <p class="valor">10/10/2026</p>
+            <p class="valor">29/10/2026</p>
             <p class="grafico-subtitulo">Data da atualização dos dados exibidos</p>
         </div>
     </section>
@@ -41,12 +41,16 @@
             </div>
 
             <button type="button" id="limpar-filtros" class="btn btn-limpar"> Limpar filtros </button>
-            <p class="grafico-subtitulo" id="status-dados" aria-live="polite"></p>
         </div>
     </section>
 
     <section>
         <h1 class="t-dashboard">Gráficos</h1>
+        
+        <p id="status-cruzamentos" role="status" aria-live="polite">
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="texto-status">Carregando cruzamentos...</span>
+        </p>
 
         <div id="lista-graficos" class="dash-grid" aria-live="polite"></div>
     </section>

@@ -1,10 +1,11 @@
+
 (() => {
     "use strict";
 
     const lista = document.getElementById("lista-graficos");
     const filtro = document.getElementById("filtro-categoria");
     const limpar = document.getElementById("limpar-filtros");
-    const status = document.getElementById("status-dados");
+    const status = document.getElementById("status-cruzamentos");
 
     if (!lista) {
         console.error("Elemento #lista-graficos não encontrado.");

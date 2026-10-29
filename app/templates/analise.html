@@ -10,48 +10,25 @@
     <section class="dashboard-resumo">
         <div class="card">
             <h2 class="grafico-titulo"><i class="fa-solid fa-magnifying-glass-chart"></i>Análises Disponíveis</h2>
-            <p class="valor">15</p>
+            <p class="valor" id="total-cruzamentos">--</p>
             <p class="grafico-subtitulo">Quantidade de gráficos apresentados</p>
         </div>
         <div class="card">
             <h2 class="grafico-titulo"><i class="fa-solid fa-clock-rotate-left"></i>Última Atualização</h2>
-            <p class="valor">10/10/2026</p>
+            <p class="valor">29/10/2026</p>
             <p class="grafico-subtitulo">Data da atualização dos dados exibidos</p>
-        </div>
-    </section>
-
-    <section class="card dash-dashboard">
-        <h2 class="grafico-titulo"> <i class="fa-solid fa-sliders"></i> Filtrar Análises </h2>
-
-        <div class="filtros-container">
-            <div class="filtro">
-                <label for="filtro-categoria">Categoria</label>
-                <div class="select-container">
-                    <select id="filtro-categoria" name="categoria">
-                        <option value="">Todas as categorias</option>
-                        <option value="perfil-conectividade">Perfil e acesso à internet</option>
-                        <option value="servicos-saude">Uso dos serviços digitais de saúde</option>
-                        <option value="experiencia-letramento">Experiência de uso e letramento digital</option>
-                        <option value="acessibilidade">Barreiras de acessibilidade</option>
-                        <option value="impactos-saude">Impactos no acesso à saúde</option>
-                    </select>
-                    <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
-                </div>
-            </div>
-
-            <button type="button" id="limpar-filtros" class="btn btn-limpar"> Limpar filtros </button>
-            <p class="grafico-subtitulo" id="status-dados" aria-live="polite"></p>
         </div>
     </section>
 
     <section>
         <h1 class="t-dashboard">Gráficos</h1>
 
-        <p id="status-cruzamentos" role="status">
-            Carregando cruzamentos...
+        <p id="status-cruzamentos" role="status" aria-live="polite">
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="texto-status">Carregando cruzamentos...</span>
         </p>
+
         <div id="lista-cruzamentos" class="dash-grid" aria-live="polite">
-        
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-4-9" class="grafico-titulo"></h3>
                 <div id="cruzamento-4-9" class="grafico-plot"></div>
