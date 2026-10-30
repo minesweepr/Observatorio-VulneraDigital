@@ -30,4 +30,5 @@ def grafico_individual(dados, pergunta, *, mostrar_legenda=None, altura=370, mar
         mostrar_legenda=mostrar_legenda,
         margem=margem,
         fonte=fonte,
+        altura_barh_dinamica=False
     )

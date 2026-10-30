@@ -1,11 +1,15 @@
-.card {
+.card,
+.grafico-card {
     min-width: 0;
     background-color: #fff;
     border-radius: 20px;
-    padding: 34px 20px;
     box-shadow: 1px 0 15px 3px rgb(100 100 103 / 5%);
     display: flex;
     flex-direction: column;
+}
+
+.card {
+    padding: 34px 20px;
     gap: 6px;
 }
 
@@ -27,23 +31,23 @@ body > section {
 }
 
 .valor {
-    font-weight: bold;
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .grafico-card {
-    min-width: 0;
-    padding: 34px 16px;
-    margin: 40px auto;
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
     gap: 16px;
+    padding: 34px 16px;
+    margin: 90px auto;
 }
 
-.grafico-card *,
-h2.grafico-titulo {
+.grafico-card * {
+    margin: 0;
+}
+
+.grafico-titulo {
     margin: 0;
 }
 
@@ -57,7 +61,8 @@ h2.grafico-titulo {
     font-size: 0.8rem;
 }
 
-.grafico-card[hidden] {
+.grafico-card[hidden],
+.spinner[hidden] {
     display: none !important;
 }
 
@@ -86,14 +91,13 @@ label {
     display: flex;
     align-items: center;
     min-width: 0;
+    gap: 8px;
+    padding: 0 18px;
     border: 1px solid rgb(100 100 103 / 5%);
     border-radius: 6px;
     background-color: #fff;
-    padding: 0 18px;
-    gap: 8px;
 }
 
-.select-container .filtro select,
 .select-container select {
     flex: 1;
     min-width: 0;
@@ -110,9 +114,9 @@ label {
 .select-container i {
     margin: 0;
     padding: 0;
+    color: rgb(114 114 114 / 57%);
     font-size: 0.85rem;
     pointer-events: none;
-    color: rgb(114 114 114 / 57%);
 }
 
 button.btn-limpar {
@@ -128,10 +132,6 @@ section i {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
     margin-bottom: 22px;
-}
-
-.dashboard-resumo .card {
-    min-width: 0;
 }
 
 .dashboard-graficos {
@@ -162,26 +162,30 @@ section i {
 #status-cruzamentos {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin: 36px 0;
     color: #555;
     font-size: 18px;
     text-align: center;
-    justify-content: center;
 }
 
 .spinner {
+    flex-shrink: 0;
     width: 18px;
     height: 18px;
     border: 3px solid #dcdcdc;
     border-top-color: #3498db;
     border-radius: 50%;
     animation: girar 0.8s linear infinite;
-    flex-shrink: 0;
 }
 
 footer {
     margin-top: 80px;
+}
+
+.dash-grid.carregando .grafico-card {
+    visibility: hidden;
 }
 
 @keyframes girar {
@@ -190,52 +194,41 @@ footer {
     }
 }
 
-.spinner[hidden] {
-    display: none;
-}
-
 @media (max-width: 760px) {
     .dashboard-resumo {
         grid-template-columns: minmax(0, 1fr);
     }
 
     .dash-iframe-container {
+        width: calc(100% + 16px);
         min-height: 2100px;
         margin-left: -8px;
-        width: calc(100% + 16px);
     }
 
     .dash-iframe-container iframe {
         height: 2600px;
     }
+
+    article.grafico-card {
+        margin-bottom: 20px;
+    }
+
+    .js-plotly-plot .colorbar {
+        display: none !important;
+    }
 }
 
 @media (min-width: 690px) {
     .grafico-card {
-        max-width: 790px;
-        background-color: #fff;
-        border-radius: 20px;
+        width: 90%;
+        max-width: 900px;
         padding: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 16px;
         margin: 60px auto;
-        box-shadow: 1px 0 15px 3px rgb(100 100 103 / 5%);
     }
 
     .grafico-card h2 {
         font-size: 1rem;
         font-weight: normal;
-    }
-
-    .grafico-card * {
-        margin: 0;
-    }
-
-    .grafico-area {
-        width: 100%;
     }
 
     .grafico-subtitulo {
