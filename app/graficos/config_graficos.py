@@ -6,42 +6,35 @@ PALETA = (
     + px.colors.qualitative.Pastel
     + px.colors.qualitative.Dark24
 )
-#TODO - grafico de barras e lollipop com cores coloridas.
+
 CONFIG_LAYOUT = {
     "template": "plotly_white",
-    "height": max(330, min(480, 90 + 150 * 34)),
+    "height": 450,
     "autosize": True,
     "dragmode": False,
-    "xaxis": { "tickangle": 0, "automargin": True, },
+    "xaxis": {"tickangle": 0, "automargin": True},
     "margin": {"l": 24, "r": 24, "t": 24, "b": 90},
     "font": { "family": "Arial, sans-serif", "color": "#343434", "size": 12, },
     "paper_bgcolor": "rgba(0,0,0,0)",
     "plot_bgcolor": "rgba(0,0,0,0)",
-    "legend": {
-        "orientation": "h",
-        "yanchor": "top",
-        "y": -0.30,
-        "xanchor": "left",
-        "x": 0,
-        "font": {"size": 10},
-    },
+    "legend": { "orientation": "h", "yanchor": "top", "y": -0.30, "xanchor": "left", "x": 0, "font": {"size": 12}, },
     "hoverlabel": { "bgcolor": "#FFFFFF", "font": {"size": 12, "color": "#343434"}, },
 }
-
-#TODO depois - Editar. barras Dashboard não tem legenda, mas barras de cruzamento tem legenda. 
 
 CONFIGURACOES_TIPOS = {
     "barv": {"legenda": "automatica"},
     "barh": {"legenda": "automatica"},
+    "barh_100": {"legenda": "automatica"},
     "pie": {"legenda": "automatica"},
     "donut": {"legenda": "automatica"},
     "lollipop": {"legenda": "automatica"},
     "area": {"legenda": "automatica"},
     "line": {"legenda": "automatica"},
+    "heatmap": {"legenda": False},
 }
 
 CONFIGURACOES_PAGINAS = {
-    "dashboard": { # nao editar essa parte do dashboard
+    "dashboard": {
         "categorias": [
             { "label": "Perfil e acesso à internet", "value": "perfil-conectividade", },
             { "label": "Uso dos serviços digitais de saúde", "value": "servicos-saude", },
@@ -67,60 +60,50 @@ CONFIGURACOES_PAGINAS = {
             { "numero": 15, "titulo": "Com que frequência você deixou de realizar alguma ação relacionada à saúde por dificuldade com recursos digitais?", "categoria": "impactos-saude", "tipo": "area", },
         ],
     },
-    "analise": { 
-        "categorias": [
-            # {
-            #     "label": "Perfil e conectividade de exemplo",
-            #     "value": "perfil-conectividade",
-            # },
-        ],
-        "cruzamentos": [ 
-            {   
-                "pergunta_1": 4,
+    "analise": {
+        "categorias": [],
+        "cruzamentos": [
+            {
+               "pergunta_1": 4,
                 "pergunta_2": 9,
-                "titulo": "Dispositivos Utilizados x Dificuldade de Usabilidade",
-                "categoria": "perfil-conectividade",
+                "titulo": "Dispositivos utilizados x dificuldade de usabilidade",
                 "tipo": "barv",
+                "barmode": "group",
+                "separar_por": 4,
+                "valores_separacao": [ "Computador", "Notebook", "Celular/smartphone", ],
             },
-            {   
+            {
                 "pergunta_1": 3,
                 "pergunta_2": 11,
-                "titulo": "Escolaridade x Facilidade de Utilizar Dispositivos",
-                "categoria": "perfil-conectividade",
+                "titulo": "Escolaridade x facilidade de utilizar dispositivos",
                 "tipo": "barh",
+                "barmode": "group",
             },
-            {   
+            {
                 "pergunta_1": 11,
                 "pergunta_2": 10,
-                "titulo": "Facilidade Digital x Desistência",
-                "categoria": "perfil-conectividade",
-                "tipo": "barv",
+                "titulo": "Facilidade digital x desistência",
+                "tipo": "heatmap",
             },
-            {   
+            {
                 "pergunta_1": 5,
                 "pergunta_2": 6,
-                "titulo": "Conectividade x Sem Acesso",
-                "categoria": "perfil-conectividade",
-                "tipo": "barh",
+                "titulo": "Conectividade x frequência sem acesso",
+                "tipo": "barh_100",
             },
-            {   
+            {
                 "pergunta_1": 1,
                 "pergunta_2": 9,
                 "titulo": "Dificuldade no uso de serviços digitais de saúde por faixa etária",
-                "categoria": "perfil-conectividade",
-                "tipo": "barv",
-            }       
+                "tipo": "barh",
+                "barmode": "group",
+            },
         ],
     },
 }
 
 def obter_configuracao(pagina):
     pagina = pagina.strip().lower()
-
     if pagina not in CONFIGURACOES_PAGINAS:
-        raise ValueError(
-            f"Página desconhecida: {pagina}. "
-            "Use 'dashboard' ou 'analise'."
-        )
-
+        raise ValueError( f"Página desconhecida: {pagina}. " "Use 'dashboard' ou 'analise'." )
     return CONFIGURACOES_PAGINAS[pagina]

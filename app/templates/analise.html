@@ -28,52 +28,52 @@
             <span id="texto-status">Carregando cruzamentos...</span>
         </p>
 
-        <div id="lista-cruzamentos" class="dash-grid" aria-live="polite">
+        <div id="lista-cruzamentos" class="dash-grid carregando" aria-live="polite" >
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-4-9" class="grafico-titulo"></h3>
                 <div id="cruzamento-4-9" class="grafico-plot"></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
-                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
-                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                    O gráfico permite analisar se existe relação entre os dispositivos utilizados pelos participantes e as
+                    dificuldades enfrentadas no acesso aos serviços digitais de saúde. A comparação ajuda a identificar
+                    quais dispositivos estão associados a maiores dificuldades de utilização.
                 </p>
-            </article> 
+            </article>
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-3-11" class="grafico-titulo"></h3>
                 <div id="cruzamento-3-11" class="grafico-plot"></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
-                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
-                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                    Este gráfico permite observar se o nível de escolaridade está relacionado à facilidade de utilizar
+                    dispositivos digitais. A análise pode indicar diferenças entre os grupos e ajudar a compreender como a
+                    escolaridade influencia a autonomia digital.
                 </p>
-            </article> 
+            </article>
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-11-10" class="grafico-titulo"></h3>
                 <div id="cruzamento-11-10" class="grafico-plot"></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
-                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
-                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                    O gráfico investiga a relação entre a facilidade de utilizar recursos digitais e a desistência de
+                    utilizar serviços de saúde. Ele permite verificar se os participantes que apresentam maiores
+                    dificuldades também relatam desistências com maior frequência.
                 </p>
-            </article> 
+            </article>
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-5-6" class="grafico-titulo"></h3>
                 <div id="cruzamento-5-6" class="grafico-plot"></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
-                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
-                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                    Este gráfico compara as condições de acesso à internet com a frequência com que os participantes ficam
+                    sem conseguir acessar os serviços digitais. A análise ajuda a compreender como as limitações de
+                    conectividade podem representar uma barreira ao acesso à saúde.
                 </p>
-            </article> 
+            </article>
             <article class="grafico-card">
                 <h3 id="titulo-cruzamento-1-9" class="grafico-titulo"></h3>
                 <div id="cruzamento-1-9" class="grafico-plot"></div>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec ultrices nisl,
-                    quis aliquam ante. Ut molestie accumsan luctus. Vestibulum sit amet lorem felis.
-                    nnnaugue et, dignissim ipsum. Integer erat arcu, tincidunt ac elit 
+                    O gráfico permite comparar as dificuldades relatadas por diferentes faixas etárias no uso de serviços
+                    digitais de saúde. Dessa forma, é possível identificar diferenças entre os grupos e investigar se
+                    determinadas idades enfrentam mais barreiras de acesso.
                 </p>
-            </article> 
+            </article>
         </div>
     </section>
 
@@ -81,5 +81,5 @@
 
 {% block js %}
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
-    <script src="{{ url_for('static', filename='js/analise.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/analise.js') }}"></script>
 {% endblock %}
