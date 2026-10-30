@@ -1,12 +1,10 @@
 "use strict";
-
 const CONFIG_PLOTLY = {
     responsive: true,
     displaylogo: false,
     scrollZoom: false,
     displayModeBar: true,
     modeBarButtonsToRemove: [
-        "pan2d",
         "resetScale2d",
         "select2d",
         "lasso2d",
@@ -14,73 +12,53 @@ const CONFIG_PLOTLY = {
         "toImage"
     ]
 };
-
 export function definirVisibilidade(elemento, visivel, display = "block") {
     if (!elemento) return;
-
     elemento.style.display = visivel ? display : "none";
 }
-
-export function atualizarStatus(
-    elemento,
-    mensagem,
-    { visivel = true, display = "block" } = {}
-) {
+export function atualizarStatus(elemento, mensagem, carregando = false) {
     if (!elemento) return;
 
-    elemento.textContent = mensagem;
-    elemento.style.display = visivel ? display : "none";
+    const textoStatus = elemento.querySelector("#texto-status");
+    const spinner = elemento.querySelector(".spinner");
+
+    if (textoStatus) { textoStatus.textContent = mensagem; }
+
+    if (spinner) { spinner.hidden = !carregando; }
+
+    elemento.style.display = carregando ? "flex" : "none";
+
+    if (!textoStatus && !carregando) {
+        elemento.textContent = mensagem;
+        elemento.style.display = "flex";
+    }
 }
 
 export async function buscarJSON(url) {
-    const resposta = await fetch(url, {
-        headers: { Accept: "application/json" }
-    });
-
+    const resposta = await fetch(url, { headers: { Accept: "application/json" } });
     const resultado = await resposta.json();
-
     if (!resposta.ok || resultado.erro) {
-        throw new Error(
-            resultado.erro || `Falha HTTP ${resposta.status}`
-        );
+        throw new Error( resultado.erro || `Falha HTTP ${resposta.status}` );
     }
 
     return resultado;
 }
 
-export function desenharGrafico(
-    area,
-    figure,
-    opcoes = {}
-) {
+export function desenharGrafico(area, figure, opcoes = {}) {
     if (!area) {
         throw new Error("Área do gráfico não encontrada.");
     }
-
     if (typeof window.Plotly === "undefined") {
         throw new Error("A biblioteca Plotly não foi carregada.");
     }
-
-    const layout = {
-        ...(figure.layout || {}),
-        autosize: true,
-        margin: {
-            ...(figure.layout?.margin || {}),
-            autoexpand: true
-        },
-        ...opcoes.layout
-    };
-
+    const layoutOriginal = figure?.layout || {};
+    const layout = { ...layoutOriginal, autosize: true, margin: { ...(layoutOriginal.margin || {}), autoexpand: true }, ...opcoes.layout };
     delete layout.width;
-
     return window.Plotly.newPlot(
         area,
-        figure.data || [],
+        figure?.data || [],
         layout,
-        {
-            ...CONFIG_PLOTLY,
-            ...opcoes.config
-        }
+        { ...CONFIG_PLOTLY, ...opcoes.config }
     );
 }
 

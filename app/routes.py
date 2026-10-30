@@ -10,7 +10,6 @@ from app.graficos.dados_graficos import ( CAMINHO_CSV, carregar_dados, localizar
 from app.graficos.dashboard_graficos import grafico_individual
 from app.graficos.analises_graficos import grafico_cruzamento
 
-
 @app.route("/")
 def index():
     return render_template("inicio.html")
@@ -45,7 +44,6 @@ def api_cruzamentos():
                 "pergunta_1": cruzamento["pergunta_1"],
                 "pergunta_2": cruzamento["pergunta_2"],
                 "titulo": cruzamento["titulo"],
-                "categoria": cruzamento["categoria"],
                 "figure": json.loads( pio.to_json(figura, validate=True) ),
             })
 
