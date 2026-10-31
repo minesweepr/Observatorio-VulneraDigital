@@ -1,24 +1,21 @@
 from pathlib import Path
+from io import BytesIO
+from vercel.blob import sync as blob
 import re
 import pandas as pd
 
-CAMINHO_CSV = ( Path(__file__).resolve().parents[2] / "dados" / "respostas.csv" )
+CAMINHO_CSV = "dados/respostas.csv"
 _cache = {}
 
-def carregar_dados(caminho_csv=CAMINHO_CSV):
-    caminho = Path(caminho_csv).resolve()
+def carregar_dados(caminho=CAMINHO_CSV):
+    # consulta os metadados do etag pra verificar se o arquivo mudou sem precisar baixar
+    modificacao=blob.head_blob(caminho).etag
 
-    if not caminho.exists():
-        raise FileNotFoundError( f"Arquivo CSV não encontrado: {caminho}" )
-
-    modificacao = caminho.stat().st_mtime_ns
-    chave = str(caminho)
-    cache = _cache.get(chave)
-
+    cache = _cache.get(caminho)
     if cache and cache["modificacao"] == modificacao:
         return cache["dados"].copy()
 
-    original = pd.read_csv( caminho, dtype=str, keep_default_na=False, encoding="utf-8-sig", )
+    original = pd.read_csv( BytesIO(blob.get_blob(caminho, access="private").body), dtype=str, keep_default_na=False, encoding="utf-8-sig", )
 
     colunas = {}
 
@@ -40,7 +37,7 @@ def carregar_dados(caminho_csv=CAMINHO_CSV):
     for coluna in dados.columns:
         dados[coluna] = dados[coluna].astype(str).str.strip()
 
-    _cache[chave] = { "modificacao": modificacao, "dados": dados, }
+    _cache[caminho] = { "modificacao": modificacao, "dados": dados, }
 
     return dados.copy()
 
